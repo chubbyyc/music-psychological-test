@@ -1,0 +1,268 @@
+/* Reset & 全局 */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#F5F0E8;
+  font-family:'Noto Sans TC',sans-serif;
+  display:flex; justify-content:center; align-items:flex-start;
+  padding-top:180px; position:relative; min-height:100vh;
+}
+
+/* 幾何貼紙 */
+.sticker { position:absolute; }
+.circle-yellow {
+  width:36px; height:36px; background:#FBBF24; border-radius:50%;
+  top:20px; left:24px;
+}
+.dot-blue {
+  width:12px; height:12px; background:#1E40AF; border-radius:50%;
+  top:100px; right:120px;
+}
+.zigzag {
+  width:60px; height:0; border-top:6px solid #1E40AF;
+  top:16px; right:40px; transform:rotate(15deg);
+}
+.dash { width:40px; height:6px; background:#FBBF24; }
+.dash-1 { bottom:24px; left:80px; transform:rotate(-10deg); }
+.dash-2 { bottom:20px; left:200px; transform:rotate(8deg); }
+.triangle {
+  width:0; height:0;
+  border-left:12px solid transparent;
+  border-right:12px solid transparent;
+  border-bottom:20px solid #FBBF24;
+  top:140px; right:80px;
+}
+.small-circle {
+  width:16px; height:16px; background:#1E40AF; border-radius:50%;
+  top:200px; left:300px;
+}
+.square {
+  width:24px; height:24px; background:#1E40AF;
+  top:60px; left:400px; transform:rotate(15deg);
+}
+.line { width:50px; height:4px; background:#1E40AF; }
+.line-1 { top:120px; right:180px; transform:rotate(-20deg); }
+.line-2 { bottom:100px; right:50px; transform:rotate(30deg); }
+.triangle-small {
+  width:0; height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-bottom:12px solid #FBBF24;
+  bottom:180px; left:150px;
+}
+/* === 幾何貼紙（新增更多樣式＆綠色貼紙） === */
+.sticker { position:absolute; }
+
+/* 綠色貼紙共用 class */
+.sticker-green { background:#10B981; }
+
+/* 小綠圓點 */
+.dot-green {
+  width:10px; height:10px; background:#10B981; border-radius:50%;
+  top:50px; left:200px;
+}
+
+/* 藍色菱形 */
+.diamond-blue {
+  position:absolute;
+  width:0; height:0;
+  border:12px solid transparent;
+  border-bottom-color:#1E40AF;
+  top:80px; right:250px;
+  transform:rotate(45deg);
+}
+
+/* 綠色長條 */
+.bar-green {
+  position:absolute;
+  width:60px; height:6px; background:#10B981;
+  bottom:140px; left:120px;
+  transform:rotate(25deg);
+}
+
+/* 黃色半圓 */
+.semi-yellow {
+  position:absolute;
+  width:30px; height:15px; background:#FBBF24;
+  border-radius:30px 30px 0 0;
+  bottom:200px; left:80px;
+  transform:rotate(-15deg);
+}
+
+/* 紫色六邊形 */
+.hexagon-purple {
+  position:absolute;
+  width:30px; height:17.32px; /* √3/2*width */
+  background:#A78BFA;
+  top:120px; right:150px;
+  clip-path: polygon(
+    50% 0%, 100% 25%, 100% 75%,
+    50% 100%, 0% 75%, 0% 25%
+  );
+}
+
+/* 綠色小星星 */
+.star-green {
+  position:absolute;
+  top:180px; right:350px;
+  width:0; height:0;
+  border-right:5px solid transparent;
+  border-bottom:8px solid #10B981;
+  border-left:5px solid transparent;
+  transform:rotate(35deg);
+}
+
+/* 細綠直線 */
+.line-green {
+  position:absolute;
+  width:4px; height:40px; background:#10B981;
+  bottom:80px; right:250px;
+  transform:rotate(-20deg);
+}
+
+/* 新增貼紙 */
+.rectangle {
+  width:30px; height:12px; background:#1E40AF;
+  top:60px; left:100px; transform:rotate(30deg);
+}
+.cross {
+  width:20px; height:20px;
+  background:
+    linear-gradient(90deg,#FBBF24 40%,transparent 40%) center/100% 20% no-repeat,
+    linear-gradient(#FBBF24 40%,transparent 40%) center/20% 100% no-repeat;
+  top:150px; right:200px;
+}
+.ellipse {
+  width:40px; height:20px; background:#FBBF24; border-radius:50%;
+  bottom:60px; right:120px; transform:rotate(15deg);
+}
+.polygon {
+  width:0; height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid #1E40AF;
+  border-bottom:20px solid transparent;
+  top:250px; left:50px; transform:rotate(90deg);
+}
+.star {
+  position:absolute; top:220px; right:300px;
+  width:0; height:0;
+  border-right:6px solid transparent;
+  border-bottom:8px solid #FBBF24;
+  border-left:6px solid transparent;
+  transform:rotate(35deg);
+}
+.wave {
+  position:absolute; bottom:40px; right:300px;
+  width:60px; height:4px; border-top:4px solid #1E40AF;
+  border-radius:50%; transform:rotate(-10deg);
+}
+
+/* 卡片 container */
+.card { position:relative; width:500px; }
+
+/* 卡片內容 */
+.card-content {
+  background: #FFF;
+  border: 4px dashed #000;
+  border-radius: 16px;
+  /* ↓ 這裡改小 padding-top，就會往上跑 */
+  padding: 80px 32px 64px;
+  box-shadow: 8px 8px 0 #000;
+}
+
+
+/* 主標題 */
+.headline {
+  font-weight:1300;
+  font-size:100px;
+  color:#FBBF24;
+  text-shadow:4px 4px 0 #000;
+  position:absolute;
+  top:-60px;    /* ↑ 再往上 */
+  left:53%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+}
+
+/* 標籤 */
+.tags {
+  font-weight:900;
+  font-size:25px;
+  color:#1E40AF;
+  text-align:center;
+  margin-bottom:12px;
+}
+
+/* 內文 */
+.intro {
+  font-weight:900;
+  font-size:20px;
+  text-align:center;
+  margin-bottom:20px;
+}
+.features {
+  list-style:none;
+  width:76%;
+  margin:0 auto 24px;
+}
+.features li {
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+/* 插畫 */
+.avatar {
+  text-align:center;
+  margin-bottom:32px;
+}
+.avatar img {
+  width:200px;
+}
+
+/* 按鈕 */
+.btn {
+  display:block;
+  margin:0 auto;
+  width:80%;
+  background:#B91C1C;     /* 深酒紅 */
+  color:#FFF;
+  font-weight:900;
+  font-size:20px;
+  padding:16px 0;
+  border:none;
+  border-radius:8px;
+  box-shadow:0 8px 0 #FBBF24;
+  text-shadow:2px 2px 0 #991B1B;
+  cursor:pointer;
+}
+.btn:active {
+  transform:translateY(4px);
+  box-shadow:0 4px 0 #FBBF24;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
