@@ -1,0 +1,835 @@
+/* 基礎設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: #feeafa;
+}
+
+/* 美式POP色彩變數 */
+:root {
+  --color-1: #8e9aaf; /* 藍灰色 */
+  --color-2: #cbc0d3; /* 淺紫色 */
+  --color-3: #efd3d7; /* 粉色 */
+  --color-4: #feeafa; /* 淺粉色 */
+  --color-5: #dee2ff; /* 淺藍色 */
+
+  --text-dark: #2c2c54;
+  --text-medium: #40407a;
+  --text-light: #706fd3;
+  --white: #ffffff;
+  --black: #2c2c54;
+  --shadow: rgba(44, 44, 84, 0.1);
+}
+
+/* 頁面切換 */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+.page.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 100;
+}
+
+/* 卡片樣式 - 優雅風格 */
+.card {
+  background: var(--white);
+  border: 2px solid var(--color-2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px var(--shadow);
+}
+
+.card-border-top,
+.card-border-bottom {
+  height: 8px;
+  background: linear-gradient(
+    90deg,
+    var(--color-1) 0%,
+    var(--color-2) 25%,
+    var(--color-3) 50%,
+    var(--color-4) 75%,
+    var(--color-5) 100%
+  );
+  position: relative;
+}
+
+.card-border-top {
+  border-radius: 18px 18px 0 0;
+}
+
+.card-border-bottom {
+  border-radius: 0 0 18px 18px;
+}
+
+.card-content {
+  padding: 40px;
+  position: relative;
+}
+
+/* 開始頁面樣式 */
+#start-page {
+  background: linear-gradient(135deg, var(--color-4) 0%, var(--color-5) 50%, var(--color-2) 100%);
+}
+
+.main-illustration {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.illustration-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.illustration-frame img {
+  width: 140px;
+  height: auto; /* 改為自動高度，保持圖片比例 */
+  max-height: 140px; /* 限制最大高度 */
+  object-fit: contain; /* 改為 contain，完整顯示圖片 */
+  position: relative;
+  z-index: 2;
+}
+
+.illustration-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, var(--color-3) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: pulse 3s infinite;
+  z-index: 1;
+}
+
+/* 標題樣式 */
+.title-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.main-title {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.title-word {
+  display: inline-block;
+}
+
+.word-1 {
+  color: var(--color-1);
+}
+.word-2 {
+  color: var(--color-2);
+}
+.word-3 {
+  color: var(--color-3);
+}
+.word-4 {
+  color: var(--color-5);
+}
+.word-5 {
+  color: var(--color-1);
+}
+
+.title-shadow {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-3);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.subtitle-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  text-align: center;
+  background: var(--color-4);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--color-2);
+  font-weight: 600;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.info-box {
+  background: var(--color-5);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--color-2);
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.info-box p {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* 按鈕樣式 */
+.primary-btn {
+  width: 100%;
+  background: var(--color-3);
+  color: var(--text-dark);
+  border: 2px solid var(--color-2);
+  padding: 18px 30px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow);
+  transition: all 0.3s ease;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.primary-btn:hover {
+  background: var(--color-2);
+  box-shadow: 0 6px 20px var(--shadow);
+  transform: translateY(-2px);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.secondary-btn {
+  background: var(--color-2);
+  color: var(--text-dark);
+  border: 2px solid var(--color-1);
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow);
+  transition: all 0.3s ease;
+  font-family: "Noto Sans TC", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.secondary-btn:hover {
+  background: var(--color-1);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+/* 測驗頁面樣式 */
+#quiz-page {
+  background: linear-gradient(135deg, var(--color-5) 0%, var(--color-4) 50%, var(--color-2) 100%);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.back-btn,
+.mute-btn {
+  background: var(--color-1);
+  border: 2px solid var(--color-2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.back-btn:hover,
+.mute-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.question-counter {
+  background: var(--color-3);
+  color: var(--text-dark);
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--color-2);
+  font-weight: 700;
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.counter-text {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.counter-numbers {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.progress-container {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--white);
+  border-radius: 10px;
+  border: 2px solid var(--color-2);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px var(--shadow);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-1) 0%, var(--color-3) 100%);
+  border-radius: 8px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+.question-container {
+  background: var(--color-4);
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid var(--color-2);
+  margin-bottom: 30px;
+  box-shadow: 0 4px 16px var(--shadow);
+  position: relative;
+}
+
+.question-number {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--color-1);
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--color-2);
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.question-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1.5;
+  margin: 10px 0;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  background: var(--white);
+  border: 2px solid var(--color-2);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.option-btn:hover {
+  background: var(--color-5);
+  border-color: var(--color-1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.option-letter {
+  background: var(--color-3);
+  color: var(--text-dark);
+  font-weight: 700;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  border: 2px solid var(--color-2);
+  font-size: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.option-text {
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+/* 結果頁面樣式 */
+#result-page {
+  background: linear-gradient(135deg, var(--color-4) 0%, var(--color-5) 30%, var(--color-2) 70%, var(--color-3) 100%);
+}
+
+.result-badge {
+  background: var(--color-1);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 15px;
+  border: 2px solid var(--color-2);
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.result-illustration {
+  margin-bottom: 25px;
+}
+
+.result-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.result-frame img {
+  width: 160px;
+  height: auto; /* 改為自動高度，保持圖片比例 */
+  max-height: 160px; /* 限制最大高度 */
+  object-fit: contain; /* 改為 contain，完整顯示圖片 */
+}
+
+.result-glow {
+  background: radial-gradient(circle, var(--color-1) 0%, transparent 70%);
+}
+
+.result-title-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.result-title {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.result-shadow {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--color-5);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.result-type-badge {
+  display: inline-block;
+  background: var(--color-2);
+  color: var(--text-dark);
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 2px solid var(--color-1);
+  box-shadow: 0 4px 12px var(--shadow);
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.result-section {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  background: var(--color-3);
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid var(--color-2);
+  margin-bottom: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.section-header h3 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.content-box {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid var(--color-2);
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.result-description,
+.bands-reason {
+  color: var(--text-medium);
+  line-height: 1.6;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.bands-container {
+  margin-bottom: 20px;
+}
+
+.band-tag {
+  display: inline-block;
+  background: var(--color-2);
+  color: var(--text-dark);
+  padding: 8px 15px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--color-1);
+  margin: 5px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.songs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: var(--white);
+  border-radius: 15px;
+  border: 2px solid var(--color-2);
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.song-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* 專輯封面 - 增大尺寸 */
+.album-cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 2px solid var(--color-2);
+  object-fit: cover;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.song-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-band {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.song-title {
+  color: var(--text-medium);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.spotify-btn {
+  background: var(--color-1);
+  color: var(--white);
+  border: 2px solid var(--color-2);
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: all 0.3s ease;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.spotify-btn:hover {
+  background: var(--color-2);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.result-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.result-actions .secondary-btn,
+.result-actions .primary-btn {
+  flex: 1;
+}
+
+/* 動畫 */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+.bounce-animation {
+  animation: bounce 2s infinite;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .card-content {
+    padding: 30px;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .title-shadow {
+    font-size: 2.5rem;
+  }
+
+  .result-title {
+    font-size: 1.8rem;
+  }
+
+  .result-shadow {
+    font-size: 1.8rem;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .song-item {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .song-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .album-cover {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .title-shadow {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  .album-cover {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* 音樂控制樣式 */
+.mute-btn {
+  background: var(--color-3);
+  color: var(--text-dark);
+}
+
+.mute-btn.muted {
+  background: var(--color-1);
+  color: var(--white);
+  opacity: 0.7;
+}
+
+#mute-icon {
+  font-size: 1rem;
+}
+
+/* 優雅背景裝飾 */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 80%, rgba(142, 154, 175, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(203, 192, 211, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(239, 211, 215, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
