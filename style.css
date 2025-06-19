@@ -108,9 +108,9 @@ body {
 
 .illustration-frame img {
   width: 140px;
-  height: auto; /* 改為自動高度，保持圖片比例 */
-  max-height: 140px; /* 限制最大高度 */
-  object-fit: contain; /* 改為 contain，完整顯示圖片 */
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
   position: relative;
   z-index: 2;
 }
@@ -210,6 +210,17 @@ body {
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.music-info {
+  color: var(--color-1) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
 }
 
 /* 按鈕樣式 */
@@ -386,6 +397,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 20px;
 }
 
 .option-btn {
@@ -432,6 +444,23 @@ body {
   font-family: "Noto Sans TC", sans-serif;
 }
 
+/* 音樂狀態顯示 */
+.music-status {
+  text-align: center;
+  padding: 10px;
+  background: var(--color-5);
+  border-radius: 10px;
+  border: 1px solid var(--color-2);
+  margin-top: 10px;
+}
+
+.music-indicator {
+  color: var(--color-1);
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
 /* 結果頁面樣式 */
 #result-page {
   background: linear-gradient(135deg, var(--color-4) 0%, var(--color-5) 30%, var(--color-2) 70%, var(--color-3) 100%);
@@ -468,9 +497,9 @@ body {
 
 .result-frame img {
   width: 160px;
-  height: auto; /* 改為自動高度，保持圖片比例 */
-  max-height: 160px; /* 限制最大高度 */
-  object-fit: contain; /* 改為 contain，完整顯示圖片 */
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
 }
 
 .result-glow {
@@ -604,7 +633,7 @@ body {
   gap: 15px;
 }
 
-/* 專輯封面 - 增大尺寸 */
+/* 專輯封面 */
 .album-cover {
   width: 80px;
   height: 80px;
@@ -701,6 +730,22 @@ body {
   animation: bounce 2s infinite;
 }
 
+/* 音樂控制樣式 */
+.mute-btn {
+  background: var(--color-3);
+  color: var(--text-dark);
+}
+
+.mute-btn.muted {
+  background: var(--color-1);
+  color: var(--white);
+  opacity: 0.7;
+}
+
+#mute-icon {
+  font-size: 1rem;
+}
+
 /* 響應式設計 */
 @media (max-width: 768px) {
   .container {
@@ -771,22 +816,6 @@ body {
   }
 }
 
-/* 音樂控制樣式 */
-.mute-btn {
-  background: var(--color-3);
-  color: var(--text-dark);
-}
-
-.mute-btn.muted {
-  background: var(--color-1);
-  color: var(--white);
-  opacity: 0.7;
-}
-
-#mute-icon {
-  font-size: 1rem;
-}
-
 /* 優雅背景裝飾 */
 .page::before {
   content: "";
@@ -801,35 +830,3 @@ body {
   pointer-events: none;
   z-index: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

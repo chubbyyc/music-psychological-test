@@ -1,17 +1,30 @@
+// 音樂播放清單 - 10首音樂
+const musicPlaylist = [
+  "At The Heart of Everything.mp3",
+  "十二月的你.mp3",
+  "嗜愛動物.mp3",
+  "安平之光.mp3",
+  "後照鏡.mp3",
+  "忘了把奇蹟帶來.mp3",
+  "愛是我們必經的辛苦.mp3",
+  "戀人.mp3",
+  "時間走了但你沒走.mp3",
+  "晚安.mp3",
+]
+
 // 測驗數據
 const questions = [
   {
     id: 1,
     question: "開學第一天，你覺得今天是什麼天氣？",
     options: ["綿綿細雨的陰天", "陽光燦爛的大晴天", "颳風下雨的雨天", "微風徐徐的涼爽天"],
-    // 請在這裡放入你的音樂連結
-    musicUrl: "YOUR_QUESTION_1_MUSIC_URL.mp3",
+    musicUrl: "戀人.mp3",
   },
   {
     id: 2,
     question: "走進一間新教室，你會如何選座位？",
     options: ["看看有沒有認識的人一起坐", "坐第一排專心聽課", "哪裡有空位就坐哪，沒有特別偏好", "最後一排或靠窗座位"],
-    musicUrl: "YOUR_QUESTION_2_MUSIC_URL.mp3",
+    musicUrl: "時間走了但你沒走.mp3",
   },
   {
     id: 3,
@@ -22,7 +35,7 @@ const questions = [
       "邊走邊做白日夢，想像在演自己的 MV",
       "一邊走一邊想等一下要吃什麼",
     ],
-    musicUrl: "YOUR_QUESTION_3_MUSIC_URL.mp3",
+    musicUrl: "愛是我們必經的辛苦.mp3",
   },
   {
     id: 4,
@@ -33,19 +46,19 @@ const questions = [
       "坐在操場中間，看大家來來去去",
       "想停就停，沒有特別偏好",
     ],
-    musicUrl: "YOUR_QUESTION_4_MUSIC_URL.mp3",
+    musicUrl: "忘了把奇蹟帶來.mp3",
   },
   {
     id: 5,
     question: "以下哪個瞬間最讓你忍不住想聽音樂？",
     options: ["考完期中期末，走出教室時", "獨自在河堤散步時", "午餐後到上課前的小歇片刻", "洗完澡看手機發呆"],
-    musicUrl: "YOUR_QUESTION_5_MUSIC_URL.mp3",
+    musicUrl: "我是一隻魚.mp3",
   },
   {
     id: 6,
     question: "你在 IG 最常發哪種類型的限動？",
     options: ["截圖歌詞配一張照片", "迷因、想到什麼發什麼", "精心拍照排版後的日常分享", "幾乎不發，但常看別人發什麼"],
-    musicUrl: "YOUR_QUESTION_6_MUSIC_URL.mp3",
+    musicUrl: "安平之光.mp3",
   },
   {
     id: 7,
@@ -56,13 +69,13 @@ const questions = [
       "一邊聽一邊幫對方罵，無條件支持對方",
       "理性分析整件事的邏輯，不給予意見",
     ],
-    musicUrl: "YOUR_QUESTION_7_MUSIC_URL.mp3",
+    musicUrl: "十二月的你.mp3",
   },
   {
     id: 8,
     question: "在小組報告中，你通常擔任什麼角色？",
     options: ["負責做簡報，統整架構與美編", "零散但源源不絕的靈感提供者", "上台報告者", "默默貢獻，哪裡有洞補哪裡"],
-    musicUrl: "YOUR_QUESTION_8_MUSIC_URL.mp3",
+    musicUrl: "At The Heart of Everything.mp3",
   },
   {
     id: 9,
@@ -73,7 +86,7 @@ const questions = [
       "躺分但在老師面前又樂於表現自己的人",
       "小劇場一堆、過度敏感的人",
     ],
-    musicUrl: "YOUR_QUESTION_9_MUSIC_URL.mp3",
+    musicUrl: "晚安.mp3",
   },
   {
     id: 10,
@@ -84,7 +97,7 @@ const questions = [
       "中午時段熱鬧的指南路，跟朋友邊聊天邊排隊",
       "操場隨意坐著發呆，看人走來走去",
     ],
-    musicUrl: "YOUR_QUESTION_10_MUSIC_URL.mp3",
+    musicUrl: "嗜愛動物.mp3",
   },
 ]
 
@@ -106,6 +119,7 @@ const results = {
     ],
     // 請替換為你的插畫圖片
     avatar: "a.png",
+    musicUrl: "接住你.mp3",
   },
   B: {
     type: "B",
@@ -116,13 +130,15 @@ const results = {
     reason:
       "現場感強烈、節奏爽快、hook 一聽就記得，適合你這種喜歡用音樂炒熱空氣、調節日常情緒的節奏人。不管是趕課路上還是朋友聚會，播下去立刻 get in the mood！",
     songs: [
-      { band: "麋先生", song: "小朋友", albumCover: "小朋友.png" },
-      { band: "美秀集團", song: "我要你愛", albumCover: "我要你愛.png" },
-      { band: "怕胖團", song: "流浪王子", albumCover: "流浪王子.png" },
-      { band: "粗大Band", song: "大薯", albumCover: "大薯.png" },
-      { band: "滅火器", song: "火山戀曲", albumCover: "火山戀曲.png" },
+      { band: "麋先生", song: "小朋友", albumCover: "小朋友.jpg" },
+      { band: "美秀集團", song: "我要你愛", albumCover: "我要你愛.jpg" },
+      { band: "怕胖團", song: "流浪王子", albumCover: "流浪王子.jpg" },
+      { band: "粗大Band", song: "大薯", albumCover: "大薯.jpg" },
+      { band: "滅火器", song: "火山戀曲", albumCover: "火山戀曲.jpg" },
     ],
     avatar: "b.png",
+    musicUrl: "大薯.mp3",
+
   },
   C: {
     type: "C",
@@ -133,13 +149,14 @@ const results = {
     reason:
       "用旋律講故事，用歌詞描寫生活中的片刻心境。不管是窗邊陽光、夜晚自習、下課前五分鐘，都能找到適合搭配的聲音。適合你這種熱愛在平凡中找詩意的感受型聽眾。",
     songs: [
-      { band: "淺堤", song: "禮物", albumCover: "禮物.png" },
-      { band: "DSPS", song: "我會不會又睡到下午了", albumCover: "我會不會又睡到下午了.png" },
-      { band: "溫室雜草", song: "How to be a boy", albumCover: "How to be a boy.png" },
-      { band: "庸俗救星", song: "窗簾", albumCover: "窗簾.png" },
-      { band: "宇宙人", song: "浪費一整天", albumCover: "浪費一整天.png" },
+      { band: "淺堤", song: "禮物", albumCover: "禮物.jpg" },
+      { band: "DSPS", song: "我會不會又睡到下午了", albumCover: "我會不會又睡到下午了.jpg" },
+      { band: "溫室雜草", song: "How to be a boy", albumCover: "How to be a boy.jpg" },
+      { band: "庸俗救星", song: "窗簾", albumCover: "窗簾.jpg" },
+      { band: "宇宙人", song: "浪費一整天", albumCover: "浪費一整天.jpg" },
     ],
     avatar: "c.png",
+    musicUrl: "禮物.mp3",
   },
   D: {
     type: "D",
@@ -150,13 +167,14 @@ const results = {
     reason:
       "兼具氣氛感與聲響層次，擅長用低調卻有存在感的編曲創造「聽進去」的感覺。旋律可能不高亢，但耐聽且令人沈靜，適合你在走廊、深夜、獨處時聆聽、進入自己的聲音宇宙",
     songs: [
-      { band: "deca joins", song: "海浪", albumCover: "海浪.png" },
-      { band: "我是機車少女", song: "Last Summer （月亮惹的禍）", albumCover: "Last Summer （月亮惹的禍）.png" },
-      { band: "恐龍的皮", song: "Millions of Years Apart", albumCover: "Millions of Years Apart.png" },
-      { band: "落日飛車", song: "Let There Be Light Again", albumCover: "Let There Be Light Again.png" },
-      { band: "JADE", song: "I Am Love", albumCover: "I Am Love.png" },
+      { band: "deca joins", song: "海浪", albumCover: "海浪.jpg" },
+      { band: "我是機車少女", song: "Last Summer （月亮惹的禍）", albumCover: "Last Summer （月亮惹的禍）.jpg" },
+      { band: "恐龍的皮", song: "Millions of Years Apart", albumCover: "Millions of Years Apart.jpg" },
+      { band: "落日飛車", song: "Let There Be Light Again", albumCover: "Let There Be Light Again.jpg" },
+      { band: "JADE", song: "I Am Love", albumCover: "I Am Love.jpeg" },
     ],
     avatar: "d.png",
+    musicUrl: "月亮惹的禍.mp3",
   },
   E: {
     type: "E",
@@ -167,14 +185,121 @@ const results = {
     reason:
       "擅長把情緒拉滿，旋律流暢、起伏明確，是為你這種情感共鳴強烈的人量身打造。當你需要一場音樂式的情緒宣洩，他們會是最懂你的存在。",
     songs: [
-      { band: "傷心欲絕", song: "月光灑落的地方", albumCover: "月光灑落的地方.png" },
-      { band: "老王樂隊", song: "我還年輕 我還年輕", albumCover: "我還年輕 我還年輕.png" },
-      { band: "鹿洐人", song: "爛笑話", albumCover: "album-cover-23.png" },
-      { band: "康士坦的變化球", song: "美好的事可不可以發生在我身上", albumCover: "美好的事可不可以發生在我身上.png" },
-      { band: "hue", song: "河", albumCover: "河.png" },
+      { band: "傷心欲絕", song: "月光灑落的地方", albumCover: "月光灑落的地方.jpg" },
+      { band: "老王樂隊", song: "我還年輕 我還年輕", albumCover: "我還年輕 我還年輕.jpg" },
+      { band: "鹿洐人", song: "爛笑話", albumCover: "爛笑話.jpg" },
+      { band: "康士坦的變化球", song: "美好的事可不可以發生在我身上", albumCover: "美好的事可不可以發生在我身上.jpg" },
+      { band: "hue", song: "河", albumCover: "河.jpg" },
     ],
     avatar: "e.png",
+    musicUrl: "美好的事可不可以發生在我身上.mp3",
   },
+}
+
+// 音樂管理類別
+class MusicManager {
+  constructor() {
+    this.playlist = [...musicPlaylist] // 複製原始播放清單
+    this.shuffledPlaylist = [] // 隨機播放清單
+    this.currentTrackIndex = 0
+    this.isPlaying = false
+    this.isMuted = false
+    this.currentAudio = null
+
+    // 初始化隨機播放清單
+    this.shufflePlaylist()
+  }
+
+  // 洗牌算法 - Fisher-Yates shuffle
+  shufflePlaylist() {
+    this.shuffledPlaylist = [...this.playlist]
+    for (let i = this.shuffledPlaylist.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[this.shuffledPlaylist[i], this.shuffledPlaylist[j]] = [this.shuffledPlaylist[j], this.shuffledPlaylist[i]]
+    }
+    this.currentTrackIndex = 0
+    console.log("🎵 播放清單已洗牌:", this.shuffledPlaylist)
+  }
+
+  // 獲取當前音樂
+  getCurrentTrack() {
+    if (this.currentTrackIndex >= this.shuffledPlaylist.length) {
+      // 如果播放完所有歌曲，重新洗牌
+      this.shufflePlaylist()
+    }
+    return this.shuffledPlaylist[this.currentTrackIndex]
+  }
+
+  // 播放下一首
+  playNext() {
+    this.currentTrackIndex++
+    const nextTrack = this.getCurrentTrack()
+    this.playTrack(nextTrack)
+    return nextTrack
+  }
+
+  // 播放指定音樂
+  playTrack(trackUrl) {
+    if (this.isMuted) return
+
+    // 停止當前播放的音樂
+    this.stopCurrentTrack()
+
+    // 創建新的音頻元素
+    this.currentAudio = new Audio(trackUrl)
+    this.currentAudio.volume = 0.6 // 設定音量
+    this.currentAudio.loop = true // 循環播放
+
+    // 音樂結束時自動播放下一首
+    this.currentAudio.addEventListener("ended", () => {
+      this.playNext()
+    })
+
+    // 播放音樂
+    this.currentAudio.play().catch((e) => {
+      console.log("音樂播放失敗:", e)
+    })
+
+    this.isPlaying = true
+    console.log("🎵 正在播放:", trackUrl)
+  }
+
+  // 停止當前音樂
+  stopCurrentTrack() {
+    if (this.currentAudio) {
+      this.currentAudio.pause()
+      this.currentAudio.currentTime = 0
+      this.currentAudio = null
+    }
+    this.isPlaying = false
+  }
+
+  // 切換靜音
+  toggleMute() {
+    this.isMuted = !this.isMuted
+
+    if (this.isMuted) {
+      this.stopCurrentTrack()
+    } else {
+      // 取消靜音時播放當前音樂
+      const currentTrack = this.getCurrentTrack()
+      this.playTrack(currentTrack)
+    }
+
+    return this.isMuted
+  }
+
+  // 開始播放（遊戲開始時調用）
+  startPlaying() {
+    const firstTrack = this.getCurrentTrack()
+    this.playTrack(firstTrack)
+  }
+
+  // 重置播放清單（重新開始遊戲時調用）
+  reset() {
+    this.stopCurrentTrack()
+    this.shufflePlaylist()
+  }
 }
 
 // 全域變數
@@ -401,9 +526,13 @@ function calculateResult() {
 
 // 顯示結果
 function showResult() {
-  stopAllAudio()
-  showPage("result")
-  playAudio(resultAudio)
+  stopAllAudio() // 停止所有音樂
+  showPage("result")  // 顯示結果頁面
+
+  // 根據結果播放對應的音樂
+  const resultAudioElement = document.getElementById("result-audio");
+  resultAudioElement.src = currentResult.musicUrl;  // 更新音樂 URL
+  resultAudioElement.play().catch((e) => console.log("音樂播放失敗:", e));  // 播放音樂
 
   // 更新結果插畫
   document.getElementById("result-avatar").src = `images/${currentResult.avatar}`
