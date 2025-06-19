@@ -1,60 +1,239 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>與你合拍的樂團是⋯</title>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bungee&family=Noto+Sans+TC:wght@400;900&display=swap">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣樂團推薦測驗</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 幾何貼紙 -->
-   <div class="sticker dot-green"></div>
-<div class="sticker diamond-blue"></div>
-<div class="sticker bar-green"></div>
-<div class="sticker semi-yellow"></div>
-<div class="sticker hexagon-purple"></div>
-<div class="sticker star-green"></div>
-<div class="sticker line-green"></div>
-  <div class="sticker circle-yellow"></div>
-  <div class="sticker dot-blue"></div>
-  <div class="sticker zigzag"></div>
-  <div class="sticker dash dash-1"></div>
-  <div class="sticker dash dash-2"></div>
-  <div class="sticker triangle"></div>
-  <div class="sticker small-circle"></div>
-  <div class="sticker square"></div>
-  <div class="sticker line line-1"></div>
-  <div class="sticker line line-2"></div>
-  <div class="sticker triangle-small"></div>
-  <div class="sticker rectangle"></div>
-  <div class="sticker cross"></div>
-  <div class="sticker ellipse"></div>
-  <div class="sticker polygon"></div>
-  <div class="sticker star"></div>
-  <div class="sticker wave"></div>
-  <!-- 新增兩種顏色 -->
-  <div class="sticker circle-green"></div>
-  <div class="sticker dot-red"></div>
-
-  <div class="card">
-    <h1 class="headline">歌荒了嗎？</h1>
-    <div class="card-content">
-      <p class="tags">#TaiwanBand #CampusVibes</p>
-      <p class="intro">從你的校園習慣，推薦你合拍的台灣樂團！</p>
-      <ul class="features">
-      </ul>
-      <div class="avatar">
-        <img src="character.png" alt="學生聽音樂">
-      </div>
-      <button class="btn">開始測驗</button>
+    <!-- 開始頁面 -->
+    <div id="start-page" class="page active">
+        <div class="container">
+            <!-- 背景音樂 -->
+            <audio id="start-audio" autoplay loop>
+                <source src="YOUR_START_MUSIC_URL.mp3" type="audio/mpeg">
+            </audio>
+            
+            <div class="card start-card">
+                <div class="card-border-top"></div>
+                <div class="card-content">
+                    <!-- 插畫位置 - 請替換為你的插畫 -->
+                    <div class="main-illustration">
+                        <div class="illustration-frame">
+                            <img src="character.png" alt="音樂插畫" class="bounce-animation">
+                            <div class="illustration-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="title-container">
+                        <h1 class="main-title">
+                            <span class="title-word word-1">歌</span>
+                            <span class="title-word word-2">荒</span>
+                            <span class="title-word word-3">了</span>
+                            <span class="title-word word-4">嗎</span>
+                            <span class="title-word word-5">？</span>
+                        </h1>
+                        <div class="title-shadow">歌荒了嗎？</div>
+                    </div>
+                    
+                    <div class="subtitle-container">
+                        <p class="subtitle">從你的校園習慣，推薦你合拍的台灣樂團！</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <p>透過 10 個校園生活問題<br>為你的歌單帶來新樣貌！</p>
+                    </div>
+                    
+                    <button id="start-btn" class="primary-btn">
+                        <span class="btn-text">開始測驗</span>
+                    </button>
+                </div>
+                <div class="card-border-bottom"></div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- 測驗頁面 -->
+    <div id="quiz-page" class="page">
+        <div class="container">
+            <!-- 問題音樂 -->
+            <audio id="question-audio" autoplay loop>
+                <source id="audio-source" src="/placeholder.svg" type="audio/mpeg">
+            </audio>
+            
+            <div class="card quiz-card">
+                <div class="card-border-top"></div>
+                <div class="card-content">
+                    <div class="quiz-header">
+                        <button id="back-btn" class="back-btn">
+                            <span class="back-arrow">←</span>
+                        </button>
+                        <div class="question-counter">
+                            <span class="counter-text">QUESTION</span>
+                            <span class="counter-numbers">
+                                <span id="current-q">1</span>/<span id="total-q">10</span>
+                            </span>
+                        </div>
+                        <button id="mute-btn" class="mute-btn">
+                            <span id="mute-icon">🔊</span>
+                        </button>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-container">
+                        <div class="question-number">Q<span id="question-num">1</span></div>
+                        <h2 id="question-text" class="question-text"></h2>
+                    </div>
+                    
+                    <div id="options-container" class="options-container">
+                        <!-- 選項會在這裡動態生成 -->
+                    </div>
+                </div>
+                <div class="card-border-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 結果頁面 -->
+    <div id="result-page" class="page">
+        <div class="container">
+            <!-- 結果音樂 -->
+            <audio id="result-audio" autoplay loop>
+                <source src="YOUR_RESULT_MUSIC_URL.mp3" type="audio/mpeg">
+            </audio>
+            
+            <div class="card result-card">
+                <div class="card-border-top"></div>
+                <div class="card-content">
+                    <div class="result-header">
+                        <div class="result-badge">YOUR RESULT</div>
+                        
+                        <!-- 結果插畫位置 - 請替換為你的插畫 -->
+                        <div class="result-illustration">
+                            <div class="illustration-frame result-frame">
+                                <img id="result-avatar" src="images.png" alt="結果插畫" class="bounce-animation">
+                                <div class="illustration-glow result-glow"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-title-container">
+                            <h1 id="result-title" class="result-title"></h1>
+                            <div class="title-shadow result-shadow"></div>
+                        </div>
+                        <div id="result-type" class="result-type-badge"></div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <div class="section-header personality-header">
+                            <h3>人格描述</h3>
+                        </div>
+                        <div class="content-box">
+                            <p id="result-description" class="result-description"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <div class="section-header bands-header">
+                            <h3>推薦樂團</h3>
+                        </div>
+                        <div class="content-box">
+                            <div id="bands-container" class="bands-container">
+                                <!-- 樂團標籤會在這裡動態生成 -->
+                            </div>
+                            <p id="bands-reason" class="bands-reason"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <div class="section-header songs-header">
+                            <h3>推薦歌單</h3>
+                        </div>
+                        <div class="content-box">
+                            <div id="songs-container" class="songs-container">
+                                <!-- 歌曲列表會在這裡動態生成 -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button id="restart-btn" class="secondary-btn">
+                            <span class="btn-text">重新測驗</span>
+                        </button>
+                        <button id="share-btn" class="primary-btn">
+                            <span class="btn-text">分享結果</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-border-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
 
-<script src="main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
