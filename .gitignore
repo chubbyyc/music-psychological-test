@@ -1,2 +1,30 @@
+cat > .gitignore << 'EOF'
+# Dependencies
 node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment
+.env*
+
+# OS files
 .DS_Store
+.DS_Store?
+._*
+
+# IDE
+.vscode/
+.idea/
+
+# Deployment
+.vercel/
+.github/
+
+# Logs
+*.log
+npm-debug.log*
+EOF
